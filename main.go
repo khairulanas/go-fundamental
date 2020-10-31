@@ -1,5 +1,10 @@
 package main
 
+import (
+	"errors"
+	"fmt"
+)
+
 func main() {
 	// var nama string = "Kato"
 	// age := 20
@@ -10,4 +15,59 @@ func main() {
 	// 	fmt.Println("boleh main")
 	// }
 
+	// arr := [8]int{1, 2, 3, 4, 5, 6, 7, 8}
+	// for i, v := range arr {
+	// 	fmt.Println(i, v)
+	// }
+
+	// luas, keliling := calculate(10, 5)
+	// luas2, _ := calculate(10, 2)
+	// fmt.Println(luas)
+	// fmt.Println(keliling)
+	// fmt.Println(luas2)
+
+	// fmt.Println(sum([]int{1, 2, 3, 4, 5}))
+	result, err := kalkulator(1, 4, "e")
+	if err != nil {
+		fmt.Println(err.Error())
+	}
+	fmt.Println(result)
+}
+
+//function with input argument and output
+func calculate(panjang int, lebar int) (int, int) {
+	luas := panjang * lebar
+	keliling := 2 * (panjang + lebar)
+	return luas, keliling
+}
+
+//predefine returen value
+func calculatePredefineReturnValue(panjang int, lebar int) (luas int, keliling int) {
+	luas = panjang * lebar
+	keliling = 2 * (panjang + lebar)
+	return
+}
+
+func sum(numbers []int) int {
+	var total int
+	for _, number := range numbers {
+		total += number
+	}
+	return total
+}
+
+func kalkulator(angka1 int, angka2 int, operator string) (result int, err error) {
+	switch operator {
+	case "+":
+		result = angka1 + angka2
+	case "-":
+		result = angka1 - angka2
+	case "*":
+		result = angka1 * angka2
+	case "/":
+		result = angka1 / angka2
+	default:
+		err = errors.New("operator salah")
+	}
+	return
 }
