@@ -5,6 +5,13 @@ import (
 	"fmt"
 )
 
+//User stric
+type User struct {
+	ID        int
+	firstname string
+	lastName  string
+}
+
 func main() {
 	// var nama string = "Kato"
 	// age := 20
@@ -20,6 +27,10 @@ func main() {
 	// 	fmt.Println(i, v)
 	// }
 
+	// var myMap map[string]string
+	// myMap = make(map[string]string)
+	// myMap["key"] = "value"
+
 	// luas, keliling := calculate(10, 5)
 	// luas2, _ := calculate(10, 2)
 	// fmt.Println(luas)
@@ -27,11 +38,30 @@ func main() {
 	// fmt.Println(luas2)
 
 	// fmt.Println(sum([]int{1, 2, 3, 4, 5}))
-	result, err := kalkulator(1, 4, "e")
-	if err != nil {
-		fmt.Println(err.Error())
-	}
-	fmt.Println(result)
+	// result, err := kalkulator(1, 4, "e")
+	// if err != nil {
+	// 	fmt.Println(err.Error())
+	// }
+	// fmt.Println(result)
+
+	user := User{ID: 1,
+		firstname: "alu",
+		lastName:  "card"}
+
+	// fmt.Println(displayUser(user))
+	fmt.Println(user.display())
+}
+
+//---------------------------------------------------------------------------------
+
+//struct as parameter
+func displayUser(user User) string {
+	return fmt.Sprintf("nama: %s %s", user.firstname, user.lastName)
+}
+
+//struct extension method
+func (user User) display() string {
+	return fmt.Sprintf("nama: %s %s", user.firstname, user.lastName)
 }
 
 //function with input argument and output
