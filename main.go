@@ -44,15 +44,44 @@ func main() {
 	// }
 	// fmt.Println(result)
 
-	user := User{ID: 1,
-		firstname: "alu",
-		lastName:  "card"}
+	// user := User{ID: 1,
+	// 	firstname: "alu",
+	// 	lastName:  "card"}
 
-	// fmt.Println(displayUser(user))
-	fmt.Println(user.display())
+	// // fmt.Println(displayUser(user))
+	// fmt.Println(user.display())
+
+	// var varA int = 5
+	// var varB *int = &varA
+
+	// fmt.Println(varA)
+	// fmt.Println(varB)
+	// fmt.Println(*varB)
+
+	// varA = 20
+
+	// fmt.Println(varA)
+	// fmt.Println(varB)
+	// fmt.Println(*varB)
+
+	//case pointer
+	number := 5
+	fmt.Println("alamat memory: ", &number)
+	fmt.Println("nilai awal: ", number)
+
+	change(&number, 100)
+
+	fmt.Println("alamat memory: ", &number)
+	fmt.Println("nilai akhir: ", number)
 }
 
 //---------------------------------------------------------------------------------
+
+func change(old *int, new int) {
+	*old = new
+	fmt.Println("alamat memory: ", old)
+	fmt.Println("nilai didalam function: ", *old)
+}
 
 //struct as parameter
 func displayUser(user User) string {
