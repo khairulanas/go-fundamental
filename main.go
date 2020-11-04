@@ -65,17 +65,30 @@ func main() {
 	// fmt.Println(*varB)
 
 	//case pointer
-	number := 5
-	fmt.Println("alamat memory: ", &number)
-	fmt.Println("nilai awal: ", number)
+	// number := 5
+	// fmt.Println("alamat memory: ", &number)
+	// fmt.Println("nilai awal: ", number)
 
-	change(&number, 100)
+	// change(&number, 100)
 
-	fmt.Println("alamat memory: ", &number)
-	fmt.Println("nilai akhir: ", number)
+	// fmt.Println("alamat memory: ", &number)
+	// fmt.Println("nilai akhir: ", number)
+
+	//struct pinter method
+	user := User{ID: 1,
+		firstname: "alu",
+		lastName:  "card"}
+	fmt.Println(user.firstname)
+	user.graduate()
+	fmt.Println(user.firstname)
+
 }
 
 //---------------------------------------------------------------------------------
+
+func (user *User) graduate() {
+	user.firstname = user.firstname + "okesip"
+}
 
 func change(old *int, new int) {
 	*old = new
