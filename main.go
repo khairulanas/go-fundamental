@@ -5,11 +5,31 @@ import (
 	"fmt"
 )
 
+//interface
+type Karakter interface {
+	GetNama() string
+}
+
 //User stric
 type User struct {
 	ID        int
 	firstname string
 	lastName  string
+}
+
+type Admin struct {
+	nama string
+}
+
+func (user User) GetNama() string {
+	return "namanya user: " + user.firstname
+}
+func (admin Admin) GetNama() string {
+	return "namanya admin: " + admin.nama
+}
+
+func PrintNama(karakter Karakter) {
+	fmt.Println(karakter.GetNama())
 }
 
 func main() {
@@ -75,12 +95,20 @@ func main() {
 	// fmt.Println("nilai akhir: ", number)
 
 	//struct pinter method
+	// user := User{ID: 1,
+	// 	firstname: "alu",
+	// 	lastName:  "card"}
+	// fmt.Println(user.firstname)
+	// user.graduate()
+	// fmt.Println(user.firstname)
+
+	//interface
 	user := User{ID: 1,
 		firstname: "alu",
 		lastName:  "card"}
-	fmt.Println(user.firstname)
-	user.graduate()
-	fmt.Println(user.firstname)
+	admin := Admin{nama: "admin coeg"}
+	PrintNama(user)
+	PrintNama(admin)
 
 }
 
